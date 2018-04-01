@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "description": "null",
+  "main": "index.js",
+  "authors": [
+    "lanlianjiu"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "handlebars": "^4.0.11"
+  },
+  "private": true
+}
