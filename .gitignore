@@ -18,7 +18,7 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-#/vendor
+/vendor
 
 # composer itself is not needed
 composer.phar
@@ -32,5 +32,4 @@ phpunit.phar
 /phpunit.xml
 
 # vagrant runtime
-#/.vagrant
-/node_modules
+/.vagrant
