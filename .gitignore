@@ -1,5 +1,4 @@
 # yii console commands
-/yii
 /yii_test
 /yii_test.bat
 
@@ -18,7 +17,6 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
 
 # composer itself is not needed
 composer.phar
@@ -32,4 +30,3 @@ phpunit.phar
 /phpunit.xml
 
 # vagrant runtime
-/.vagrant
