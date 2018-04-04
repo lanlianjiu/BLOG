@@ -279,3 +279,114 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1522504743.05
     'REQUEST_TIME' => 1522504743
 ]
+2018-04-04 04:06:15 [::1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php:630
+Stack trace:
+#0 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php(630): PDO->__construct('mysql:host=loca...', 'root', 'root', NULL)
+#1 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php(563): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php(896): yii\db\Connection->open()
+#3 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php(883): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Command.php(896): yii\db\Command->prepare('<span class="ke...')
+#6 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#7 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Query.php(213): yii\db\Command->queryAll()
+#8 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#9 C:\xampp\htdocs\BLOG\frontend\models\FeedsForm.php(62): yii\db\ActiveQuery->all()
+#10 C:\xampp\htdocs\BLOG\frontend\widgets\chat\ChatWidget.php(14): frontend\models\FeedsForm->getList()
+#11 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Widget.php(139): frontend\widgets\chat\ChatWidget->run()
+#12 C:\xampp\htdocs\BLOG\frontend\views\site\index.php(18): yii\base\Widget::widget()
+#13 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\View.php(328): require('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[]')
+#15 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('<span class="st...', '[]', Object(frontend\controllers\SiteController))
+#16 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Controller.php(381): yii\base\View->render('<span class="st...', '[]', Object(frontend\controllers\SiteController))
+#17 C:\xampp\htdocs\BLOG\frontend\controllers\SiteController.php(76): yii\base\Controller->render('<span class="st...')
+#18 [internal function]: frontend\controllers\SiteController->actionIndex()
+#19 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#20 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#21 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Module.php(523): yii\base\Controller->runAction('<span class="st...', '[]')
+#22 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#23 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\xampp\htdocs\BLOG\frontend\web\index.php(18): yii\base\Application->run()
+#25 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php:568
+Stack trace:
+#0 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php(896): yii\db\Connection->open()
+#1 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Connection.php(883): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Command.php(896): yii\db\Command->prepare('<span class="ke...')
+#4 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#5 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\Query.php(213): yii\db\Command->queryAll()
+#6 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#7 C:\xampp\htdocs\BLOG\frontend\models\FeedsForm.php(62): yii\db\ActiveQuery->all()
+#8 C:\xampp\htdocs\BLOG\frontend\widgets\chat\ChatWidget.php(14): frontend\models\FeedsForm->getList()
+#9 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Widget.php(139): frontend\widgets\chat\ChatWidget->run()
+#10 C:\xampp\htdocs\BLOG\frontend\views\site\index.php(18): yii\base\Widget::widget()
+#11 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\View.php(328): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[]')
+#13 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('<span class="st...', '[]', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Controller.php(381): yii\base\View->render('<span class="st...', '[]', Object(frontend\controllers\SiteController))
+#15 C:\xampp\htdocs\BLOG\frontend\controllers\SiteController.php(76): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Module.php(523): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\BLOG\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\BLOG\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+Additional Information:
+
+2018-04-04 04:06:15 [::1][-][-][info][application] $_COOKIE = [
+    'pgv_pvi' => '3568957440'
+    '_identity' => '483b0c2dba5d9e3feb12edb698345837eab4c55d1725c916db04bb9f737fae04a:2:{i:0;s:9:\"_identity\";i:1;s:26:\"[\"1\",\"test100key\",2592000]\";}'
+    '_identity-backend' => '9c970eeb56d29a1c36c34bdc995b9c1a219a20cb1dc3ccf3968274b055ab6fc1a:2:{i:0;s:17:\"_identity-backend\";i:1;s:46:\"[1,\"2aF4Cn7blkSOrr-NgdL5nmAC6cLFUfZx\",2592000]\";}'
+    'Hm_lvt_080836300300be57b7f34f4b3e97d911' => '1521518609,1521714219,1521787261,1522384102'
+    'advanced-backend' => '04s0pdcd95d1uvddpgih2c4ii4'
+    '_csrf-backend' => 'c1023d420b82ac80cb2010d7c9a564c18024ffd1ac2aa7462044ded7c4b73f1fa:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"wIxC9e2S0YxZklFn4VVqV3nz6laX2MGH\";}'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/BLOG/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.9'
+    'HTTP_COOKIE' => 'pgv_pvi=3568957440; _identity=483b0c2dba5d9e3feb12edb698345837eab4c55d1725c916db04bb9f737fae04a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A26%3A%22%5B%221%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _identity-backend=9c970eeb56d29a1c36c34bdc995b9c1a219a20cb1dc3ccf3968274b055ab6fc1a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_identity-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%222aF4Cn7blkSOrr-NgdL5nmAC6cLFUfZx%22%2C2592000%5D%22%3B%7D; Hm_lvt_080836300300be57b7f34f4b3e97d911=1521518609,1521714219,1521787261,1522384102; advanced-backend=04s0pdcd95d1uvddpgih2c4ii4; _csrf-backend=c1023d420b82ac80cb2010d7c9a564c18024ffd1ac2aa7462044ded7c4b73f1fa%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22wIxC9e2S0YxZklFn4VVqV3nz6laX2MGH%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;c:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\IDM Computer Solutions\\UltraEdit;C:\\Program Files\\IDM Computer Solutions\\UltraCompare;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\android-sdk-windows\\tools;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\TortoiseGit\\bin;C:\\Users\\tyc\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Program Files (x86)\\Microsoft VS Code\\bin;C:\\Users\\tyc\\AppData\\Roaming\\npm;C:\\Program Files\\Java\\jdk1.8.0_161\\bin;C:\\Users\\tyc\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\tyc\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\Java\\jdk1.8.0_161\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.5.38 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2h PHP/5.5.38'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/BLOG/frontend/web/index.php'
+    'REMOTE_PORT' => '61846'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/BLOG/frontend/web/'
+    'SCRIPT_NAME' => '/BLOG/frontend/web/index.php'
+    'PHP_SELF' => '/BLOG/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1522807575.751
+    'REQUEST_TIME' => 1522807575
+]
