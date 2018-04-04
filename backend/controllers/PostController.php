@@ -36,12 +36,14 @@ class PostController extends Controller
     public function actionIndex()
     {
         $searchModel = new PostSearch();
+        $model = new PostModel();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        var_dump($dataProvider);
+        // return $this->render('index', [
+        //     'searchModel' => $searchModel,
+        //     'dataProvider' => $dataProvider,
+        // ]);
+        return json_encode($model->resultObj($dataProvider,"",""));
     }
 
     /**

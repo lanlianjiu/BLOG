@@ -34,9 +34,16 @@ class BaseModel extends ActiveRecord{
         return $data;
     }
 
+    public function resultObj($data,$status,$msg){
+        
+        $resultMap = [
+            'status' => $status,
+            'result' => $data,
+            'massgess'=>$msg
+        ];
 
-
-
+        return json_encode($resultMap);
+    }
 }
 
 ?>
