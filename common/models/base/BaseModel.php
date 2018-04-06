@@ -34,7 +34,7 @@ class BaseModel extends ActiveRecord{
         return $data;
     }
 
-    public function resultObj($data,$status,$msg){
+    public function resultObj($status,$data,$msg){
         
         $resultMap = [
             'status' => $status,

@@ -20,6 +20,7 @@
             $.post($.cfg.server_ + "InterfaceRequest.php?r=site/login", data,
                 function (result) {
                     $scope.loginSubmit = false;
+                    console.log(result)
                     if (result.status) {
                         $.localCache.remove($.cfg.user);
                         $.localCache.set($.cfg.user, result.result);

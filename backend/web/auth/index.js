@@ -36,7 +36,7 @@
                 }, 'json');
         };
 
-        //$scope.getMenus();
+        $scope.getMenus();
 
         // $scope.menuList = [{
         //     id: 1,
