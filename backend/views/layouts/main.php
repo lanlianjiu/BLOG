@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="adminIndex" ng-controller="controller">
+<html ng-app="adminMain" ng-controller="controller">
 
 <head>
     <meta charset="utf-8">
@@ -218,7 +218,7 @@
     <!--请在下方写此页面业务相关的脚本-->
     <script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
     <script src="js/iov.min.js"></script>
-    <script src="auth/index.js"></script>
+    <script src="js/layout/main.js"></script>
 </body>
 
 </html>
