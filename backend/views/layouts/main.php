@@ -1,224 +1,218 @@
-<!DOCTYPE HTML>
-<html ng-app="adminIndex" ng-controller="controller">
+<?php
 
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use backend\assets\AppAsset;
+use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+use common\widgets\Alert;
+use yii\helpers\Url;
+use backend\widgets\sidebar\SidebarWidget;
+use yii\bootstrap\Modal;
+
+AppAsset::register($this);
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="Bookmark" href="/favicon.ico">
-    <link rel="Shortcut Icon" href="/favicon.ico" />
-    <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
-<![endif]-->
-    <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
-    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
-    <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
-    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
-    <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-    <title>BLOG后台登录系统</title>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
 </head>
-
 <body>
-    <header class="navbar-wrapper">
-        <div class="navbar navbar-fixed-top">
-            <div class="container-fluid cl">
-                <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">BLOG</a>
-                <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-                <nav class="nav navbar-nav">
-                    <ul class="cl">
-                        <li class="dropDown dropDown_hover">
-                            <a href="javascript:;" class="dropDown_A">
-                                <i class="Hui-iconfont">&#xe600;</i> 新增
-                                <i class="Hui-iconfont">&#xe6d5;</i>
-                            </a>
-                            <ul class="dropDown-menu menu radius box-shadow">
-                                <li>
-                                    <a href="javascript:;" onclick="article_add('添加资讯','article-add.html')">
-                                        <i class="Hui-iconfont">&#xe616;</i> 资讯</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')">
-                                        <i class="Hui-iconfont">&#xe613;</i> 图片</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" onclick="product_add('添加资讯','product-add.html')">
-                                        <i class="Hui-iconfont">&#xe620;</i> 产品</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')">
-                                        <i class="Hui-iconfont">&#xe60d;</i> 用户</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-                    <ul class="cl">
-                        <li>用户角色</li>
-                        <li class="dropDown dropDown_hover">
-                            <a href="#" class="dropDown_A" ng-bind="userInfo.username">
-                                <i class="Hui-iconfont">&#xe6d5;</i>
-                            </a>
-                            <ul class="dropDown-menu menu radius box-shadow">
-                                <li>
-                                    <a href="javascript:;" onClick="myselfinfo()">个人信息</a>
-                                </li>
-                                <li>
-                                    <a href="#" ng-click="loginOut()">退出</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li id="Hui-msg">
-                            <a href="#" title="消息">
-                                <span class="badge badge-danger">1</span>
-                                <i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i>
-                            </a>
-                        </li>
-                        <li id="Hui-skin" class="dropDown right dropDown_hover">
-                            <a href="javascript:;" class="dropDown_A" title="换肤">
-                                <i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i>
-                            </a>
-                            <ul class="dropDown-menu menu radius box-shadow">
-                                <li>
-                                    <a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" data-val="blue" title="蓝色">蓝色</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" data-val="green" title="绿色">绿色</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" data-val="red" title="红色">红色</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" data-val="yellow" title="黄色">黄色</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" data-val="orange" title="橙色">橙色</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+<?php $this->beginBody() ?>
+
+<header>
+    <div class="headerpanel">
+        <div class="logopanel">
+            <h2><a href="#">博客管理系统</a></h2>
+        </div><!-- logopanel -->
+        
+        <div class="headerbar">
+            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+
+            <div class="searchpanel">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+                </div><!-- input-group -->
             </div>
-        </div>
-    </header>
-    <aside class="Hui-aside">
-        <div class="menu_dropdown bk_2">
-            <dl id="menu-actice">
-                <dt>
-                    <i class="Hui-iconfont">&#xe616;</i>
-                    <span>文章管理</span>
-                    <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-                </dt>
-                <dd>
-                    <ul>
-                        <li>
-                            <a data-href="../views/post/index.php" data-title="文章列表" href="javascript:void(0)">文章列表</a>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl id="menu-carycter">
-                <dt>
-                    <i class="Hui-iconfont">&#xe620;</i>
-                    <span>分类管理</span>
-                    <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-                </dt>
-                <dd>
-                    <ul>
-                        <li>
-                            <a data-href="catsList.html" data-title="分类列表" href="javascript:void(0)">分类列表</a>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl id="menu-carycter">
-                <dt>
-                    <i class="Hui-iconfont">&#xe62e;
-                    </i> <span>标签管理</span>
-                    <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-                </dt>
-                <dd>
-                    <ul>
-                        <li>
-                            <a data-href="tagsList.html" data-title="标签列表" href="javascript:void(0)">标签列表</a>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
-            <dl id="menu-carycter">
-                <dt>
-                    <i class="Hui-iconfont">&#xe60d;</i>
-                    <span>会员管理</span>
-                    <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-                </dt>
-                <dd>
-                    <ul>
-                        <li>
-                            <a data-href="userList.html" data-title="分类列表" href="javascript:void(0)">会员列表</a>
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
-    </aside>
-    <div class="dislpayArrow hidden-xs">
-        <a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
-    </div>
-    <section class="Hui-article-box">
-        <div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
-            <div class="Hui-tabNav-wp">
-                <ul id="min_title_list" class="acrossTab cl">
-                    <li class="active">
-                        <span title="首页" data-href="./main.html">首页</span>
-                        <em></em>
+
+            <div class="header-right">
+                <ul class="headermenu">
+                    <li>
+                    <div id="noticePanel" class="btn-group">
+                        <button class="btn btn-notice alert-notice" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-commenting"></i>
+                        </button>
+                        <div id="noticeDropdown" class="dropdown-menu dm-notice pull-right">
+                        <div role="tabpanel">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li class="active"><a data-target="#notification" data-toggle="tab">消息（2）</a></li>
+                                <li><a data-target="#reminders" data-toggle="tab">提醒（4）</a></li>
+                            </ul>
+    
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="notification">
+                                    <ul class="list-group notice-list">
+                                        <li class="list-group-item unread">
+                                            <div class="row">
+                                                <div class="col-xs-2">
+                                                    <i class="fa fa-envelope"></i>
+                                                </div>
+                                                <div class="col-xs-10">
+                                                    <h5><a href="#">消息来自某好友</a></h5>
+                                                    <small>2015-12-27</small>
+                                                    <span>这是是摘要...</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <a class="btn-more" href="">查看全部消息 <i class="fa fa-long-arrow-right"></i></a>
+                                </div><!-- tab-pane -->
+    
+                                <div role="tabpanel" class="tab-pane" id="reminders">
+                                    <h1 id="todayDay" class="today-day"></h1>
+                                    <h3 id="todayDate" class="today-date"></h3>
+                                    <h4 class="panel-title">即将到期</h4>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-xs-2">
+                                                    <h4>20</h4>
+                                                    <p>Aug</p>
+                                                </div>
+                                                <div class="col-xs-10">
+                                                    <h5><a href="">HTML5/CSS3 Live! United States</a></h5>
+                                                    <small>San Francisco, CA</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <a class="btn-more" href="">查看更多提醒 <i class="fa fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </li>
+                    
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-logged" data-toggle="dropdown">
+                                <img src="<?=Yii::$app->params['avatar']['small'] ?>" alt="头像">
+                                <?=Yii::$app->user->identity->username?>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#"><i class="fa fa-user"></i> 个人中心</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> 账户设置</a></li>
+                                <li><a href="<?=Url::to(['site/logout'])?>" data-method="post" ><i class="fa fa-sign-out"></i> 退出</a></li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
-            </div>
-            <div class="Hui-tabNav-more btn-group">
-                <a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;">
-                    <i class="Hui-iconfont">&#xe6d4;</i>
-                </a>
-                <a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;">
-                    <i class="Hui-iconfont">&#xe6d7;</i>
-                </a>
-            </div>
-        </div>
-        <div id="iframe_box" class="Hui-article">
-            <div class="show_iframe">
-                <div style="display:none" class="loading"></div>
-                <iframe scrolling="yes" frameborder="0" src="../views/layouts/tplHtml/main.html"></iframe>
-            </div>
-        </div>
-    </section>
+            </div><!-- header-right -->
+        </div><!-- headerbar -->
+    </div><!-- header-->
+</header>
 
-    <div class="contextMenu" id="Huiadminmenu">
-        <ul>
-            <li id="closethis">关闭当前 </li>
-            <li id="closeall">关闭全部 </li>
+<section>
+
+<div class="leftpanel">
+    <div class="leftpanelinner">
+
+      <!-- ################## LEFT PANEL PROFILE ################## -->
+
+    <div class="media leftpanel-profile">
+        <div class="media-left">
+            <a href="#">
+                <img src="<?=Yii::$app->params['avatar']['small']?>" alt="" class="media-object img-circle">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading"><?=Yii::$app->user->identity->username?><a data-toggle="collapse" data-target="#loguserinfo" class="pull-right"><i class="fa fa-angle-down"></i></a></h4>
+            <span>管理员</span>
+        </div>
+    </div><!-- leftpanel-profile -->
+
+    <div class="leftpanel-userinfo collapse" id="loguserinfo">
+        <h5 class="sidebar-title">地址</h5>
+        <address>浙江省杭州市滨江区</address>
+        <h5 class="sidebar-title">联系方式</h5>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <label class="pull-left">邮箱</label>
+                <span class="pull-right">me@themepixels.com</span>
+            </li>
+            <li class="list-group-item">
+                <label class="pull-left">电话</label>
+                <span class="pull-right">(032) 1234 567</span>
+            </li>
+            <li class="list-group-item">
+                <label class="pull-left">手机</label>
+                <span class="pull-right">+63012 3456 789</span>
+            </li>
+            <li class="list-group-item">
+                <label class="pull-left">第三方</label>
+                <div class="social-icons pull-right">
+                    <a href="#"><i class="fa fa-facebook-official"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+            </li>
         </ul>
+    </div><!-- leftpanel-userinfo -->
+    <div class="tab-content">
+    
+        <div class="tab-pane active" id="mainmenu">
+            <h5 class="sidebar-title">菜单</h5>
+            <!-- sidebar组件 -->
+            <?=SidebarWidget::widget([
+                'encodeLabels' => false,
+            ])?>
+        </div>
+    </div><!-- tab-content -->
+
+    </div><!-- leftpanelinner -->
+</div><!-- leftpanel -->
+
+  <div class="mainpanel">
+    <div class="contentpanel">
+        <?= Breadcrumbs::widget([
+            'homeLink'=>[
+                'label' => '<i class="fa fa-home mr5"></i> '.Yii::t('yii', 'Home'),
+                'url' => '/',
+                'encode' => false,
+            ],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            'tag'=>'ol',
+            'options' => ['class' => 'breadcrumb breadcrumb-quirk']
+        ]) ?>                
+        <hr class="darken"> 
+        <?= Alert::widget() ?>       
+        <?=$content?>
     </div>
-    <!--_footer 作为公共模版分离出去-->
-    <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/angular/angular-1.4.8.min.js"></script>
-    <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-    <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-    <script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script>
-    <!--/_footer 作为公共模版分离出去-->
+    
+  </div><!-- mainpanel -->
 
-    <!--请在下方写此页面业务相关的脚本-->
-    <script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
-    <script src="js/iov.min.js"></script>
-    <script src="../views/layouts/tplHtml/js/index.js"></script>
+</section>
+
+<?php Modal::begin([    
+    'id' => 'create-modal',    
+    'header' => '<h4 class="modal-title"></h4>',    
+]); 
+Modal::end();
+?>
+<?php $this->endBody() ?>
 </body>
-
 </html>
+<?php $this->endPage() ?>

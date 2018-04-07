@@ -12,6 +12,7 @@ use backend\models\LoginForm;
  */
 class SiteController extends Controller
 {
+    
     /**
      * @inheritdoc
      */
@@ -41,6 +42,7 @@ class SiteController extends Controller
         ];
     }
 
+
     /**
      * @inheritdoc
      */
@@ -60,7 +62,27 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+       
+        $menuList = Yii::$app->db->createCommand('
+         SELECT DISTINCT m.menu_id menuId,
+						   m.menu_dname name,
+						   m.menu_dname title,
+						   m.menu_id tabs,
+						   m.menu_url url,
+						   m.help_url helpUrl,
+						   IFNULL(m.menu_p_id,0) menuPId,
+						   m.new_window_opened newWindowOpened,
+						   m.menu_icon menuIcon
+                      FROM admin_menus m	
+                     WHERE m.menu_id != 1
+                     ORDER BY m.menu_p_id, m.menu_order')->queryAll();
+                      $result = [
+                        'result'=>$menuList,
+                        'status' => true,
+                        'msg' => ''
+                        ];
+                       
+       return json_encode($result);
     }
 
     /**
@@ -70,22 +92,34 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        $this->layout = 'login.php';
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+             $result = [
+            'status' => true,
+               'msg' => ''
+            ];
+             return json_encode($result);
         }
-
+       
         $model = new LoginForm();
-        
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+         
+        if ($model->load(Yii::$app->request->post(),'') && $model->login()) {
+
+            $result = [
+            'result' => ['username'=>Yii::$app->user->identity->username], 
+            'status' => true,
+               'msg' => ''
+            ];
+            $result = (object) $result; 
+            return json_encode($result);
         } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            $result = [
+            'status' => false,
+               'msg' => ''
+            ];
+            return json_encode($result);
         }
     }
-
+    
     /**
      * Logout action.
      *
@@ -94,7 +128,6 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
-        return $this->goHome();
+        return json_encode(true);
     }
 }
