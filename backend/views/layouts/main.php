@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html ng-app="adminMain" ng-controller="controller">
+<html ng-app="adminIndex" ng-controller="controller">
 
 <head>
     <meta charset="utf-8">
@@ -13,11 +13,11 @@
 <script type="text/javascript" src="lib/html5shiv.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <![endif]-->
-    <link rel="stylesheet" type="text/css" href="statics/h-ui/css/H-ui.min.css" />
-    <link rel="stylesheet" type="text/css" href="statics/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
-    <link rel="stylesheet" type="text/css" href="statics/h-ui.admin/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="statics/h-ui.admin/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
     <!--[if IE 6]>
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -29,7 +29,7 @@
     <header class="navbar-wrapper">
         <div class="navbar navbar-fixed-top">
             <div class="container-fluid cl">
-                <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">MCA</a>
+                <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">BLOG</a>
                 <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
                 <nav class="nav navbar-nav">
                     <ul class="cl">
@@ -122,7 +122,7 @@
                 <dd>
                     <ul>
                         <li>
-                            <a data-href="staticHtml/article/articleList.html" data-title="文章列表" href="javascript:void(0)">文章列表</a>
+                            <a data-href="../views/post/index.php" data-title="文章列表" href="javascript:void(0)">文章列表</a>
                         </li>
                     </ul>
                 </dd>
@@ -179,7 +179,7 @@
             <div class="Hui-tabNav-wp">
                 <ul id="min_title_list" class="acrossTab cl">
                     <li class="active">
-                        <span title="首页" data-href="auth/main.html">首页</span>
+                        <span title="首页" data-href="./main.html">首页</span>
                         <em></em>
                     </li>
                 </ul>
@@ -196,7 +196,7 @@
         <div id="iframe_box" class="Hui-article">
             <div class="show_iframe">
                 <div style="display:none" class="loading"></div>
-                <iframe scrolling="yes" frameborder="0" src="auth/main.html"></iframe>
+                <iframe scrolling="yes" frameborder="0" src="../views/layouts/tplHtml/main.html"></iframe>
             </div>
         </div>
     </section>
@@ -211,14 +211,14 @@
     <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="lib/angular/angular-1.4.8.min.js"></script>
     <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-    <script type="text/javascript" src="statics/h-ui/js/H-ui.min.js"></script>
-    <script type="text/javascript" src="statics/h-ui.admin/js/H-ui.admin.js"></script>
+    <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
+    <script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script>
     <!--/_footer 作为公共模版分离出去-->
 
     <!--请在下方写此页面业务相关的脚本-->
     <script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
     <script src="js/iov.min.js"></script>
-    <script src="js/layout/main.js"></script>
+    <script src="../views/layouts/tplHtml/js/index.js"></script>
 </body>
 
 </html>
