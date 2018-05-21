@@ -37,6 +37,7 @@ AppAsset::register($this);
     $leftMenuItems = [
         ['label' => Yii::t('yii','Home'), 'url' => ['/site/index']],
         ['label' => Yii::t('common','Post'), 'url' => ['/post/index']],
+         ['label' => Yii::t('common','cretae'), 'url' => ['/post/create']],
         ['label' => Yii::t('common','About'), 'url' => ['/site/about']],
         ['label' => Yii::t('common','Contact'), 'url' => ['/site/contact']],
     ];
